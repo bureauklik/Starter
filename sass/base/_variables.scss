@@ -1,0 +1,50 @@
+// Base colors
+$blue:				hsl(204, 80%, 35%);
+$red:				hsl(10, 68%, 54%);
+$green:				hsl(172, 66%, 30%);
+
+// Grays
+$black:				hsl(0, 0%, 20%);
+$dark-gray:			hsl(0, 0%, 40%);
+$gray:				hsl(0, 0%, 50%);
+$medium-gray: 		hsl(0, 0%, 70%);
+$light-gray: 		hsl(0, 0%, 90%);
+$ultralight-gray: 	hsl(0, 0%, 97%);
+$white:				hsl(0, 0%, 100%);
+
+// Typography
+$base-font-family: $font-stack-system;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Font Colors
+$base-font-color: $black;
+$action-color: $blue;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;

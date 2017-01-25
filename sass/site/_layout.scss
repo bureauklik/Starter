@@ -1,0 +1,45 @@
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+body {
+	background: $base-background-color;
+}
+
+.site-header,
+.site-content,
+.footer-widgets {
+	padding-left: 20px;
+	padding-right: 20px;
+	@include media($large) {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	@include media($medium) {
+		@include outer-container();
+	}
+
+}
+
+
+/*--------------------------------------------------------------
+# Templates
+--------------------------------------------------------------*/
+@include media($medium) {
+ 	
+ 	// Sidebar
+	#primary.content-area:not(.wide) {
+		@include span-columns(8);
+	}
+
+	#secondary.widget-area {
+		@include span-columns(4);
+	}
+
+	// Narrow
+	#primary.content-area.narrow {
+		@include span-columns(8);
+		@include shift(2);
+	}
+
+}

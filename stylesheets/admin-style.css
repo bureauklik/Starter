@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+# ACF Admin layout
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Hide labels
+--------------------------------------------------------------*/
+[data-name="subheading"] > .acf-label,
+[data-name="layouts"] > .acf-label,
+[data-name="col_1"] > .acf-label,
+[data-name="col_2"] > .acf-label,
+[data-name="col_3"] > .acf-label,
+[data-name="col_4"] > .acf-label {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+# Columns
+--------------------------------------------------------------*/
+/* Custom Tabs */
+[data-layout="columns"] .acf-tab-button { line-height: 10px !important; }
+
+/* Hide tab text */
+[data-layout="columns"] [data-key="field_tab_options"],
+[data-layout="columns"] [data-key="field_tab_content"] {
+	font-size: 0 !important;
+	line-height: 0 !important
+}
+/* Add icon */
+[data-layout="columns"] [data-key="field_tab_options"]:before,
+[data-layout="columns"] [data-key="field_tab_content"]:before {
+	color: #888;
+	font-family: "dashicons";
+	font-size: 24px;
+	line-height: 20px;
+}
+[data-layout="columns"] [data-key="field_tab_content"]:before {	content: "\f464"; }
+[data-layout="columns"] [data-key="field_tab_options"]:before {	content: "\f111"; }
+
+/* Tabs Sidebar width */
+[data-layout="columns"] .acf-fields.-sidebar { padding-left: 43px !important;}
+[data-layout="columns"] .acf-tab-wrap.-left .acf-tab-group {width: 43px;}
+[data-layout="columns"] .acf-fields.-sidebar:before {width: 42px;}
+
+/* Layout */
+[data-layout="columns"] .acf-fields {
+	display: flex;
+	flex-wrap: wrap;
+}
+[data-name="col_1"],
+[data-name="col_2"],
+[data-name="col_3"],
+[data-name="col_4"] {
+	flex: 1;
+}
+[data-name="row_options"],
+[data-name="row_image"] {
+	width: 100%;
+}

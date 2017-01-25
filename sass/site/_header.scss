@@ -1,0 +1,87 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header {
+	margin-bottom: $small-spacing;
+	@include media($medium) {
+		margin-bottom: $base-spacing;
+	}
+	position: relative;
+
+	.site-branding {
+		float: left;
+		.site-logo {
+			display: block;
+			margin: 1em 0;
+		}
+	}
+
+	.menu-toggle {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+}
+
+/*--------------------------------------------------------------
+# Hamburger menu
+--------------------------------------------------------------*/
+.menu-toggle {
+	background-color: transparent;
+	text-indent: -99999px;
+	height: 60px;
+	position: relative;
+	width: 60px;
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: initial;
+	}
+	&.is-active {
+		span {
+			background: 0 0;
+			&:before,
+			&:after { 
+				transition-delay: 0s, .15s;
+			}
+			&:before {
+				top: 0;
+				transform: rotate(45deg);
+			}
+			&:after {
+				bottom: 0;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	span {
+		display: block;
+		position: absolute;
+		top: 30px;
+		left: 15px;
+		right: 15px;
+		height: 2px;
+		background: $action-color;
+		transition: background 0s .15s;
+		&:before,
+		&:after {
+			background-color: $action-color;
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			height: 2px;
+			width: 100%;
+			transition-duration: .15s, .15s;
+			transition-delay: .15s, 0s
+		}
+		&:before {
+			transition-property: top, transform;
+			top: -10px;
+		}
+		&:after {
+			bottom: -10px;
+			transition-property: bottom, transform;
+		}
+	}
+}

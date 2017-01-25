@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+
+	&:focus {
+		background-color: #FFF;
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		color: #444;
+		display: block;
+		font-size: 0.875em;
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone {
+	clear: both;
+	display: block;
+	margin: 1em auto;
+}
+@include media($medium) {
+	.alignleft {
+		display: inline;
+		float: left;
+		margin-right: 1em;
+		margin-top: 0;
+	}
+	.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1em;
+		margin-top: 0;
+	}
+	.alignnone {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-caption-text {
+		margin: 0 0 .75em;
+		font-size: .875em;
+		font-weight: 700;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}

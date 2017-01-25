@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+# ACF Columns
+--------------------------------------------------------------*/
+.acf_wide {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	@include media($large) {
+		padding-left: 40px;
+		padding-right: 40px;
+		margin-left: -40px;
+		margin-right: -40px;
+	}
+}
+
+.acf_columns {
+	@include media($medium) {
+		@include clearfix();
+		&.cols_1 > .grid-cell {
+			@include span-columns(12 of 12);
+		}
+		&.cols_1_small > .grid-cell {
+			@include span-columns(8 of 12);
+			@include shift(2);
+		}
+		&.cols_2 > .grid-cell {
+			@include span-columns(6 of 12);
+		}
+		&.cols_3 > .grid-cell {
+			@include span-columns(4 of 12);
+		}
+		&.cols_4 > .grid-cell {
+			@include span-columns(3 of 12);
+		}
+		&.right_wide > .grid-cell:first-child {
+			@include span-columns(4 of 12);
+		}
+		&.right_wide > .grid-cell:last-child {
+			@include span-columns(8 of 12);
+		}
+		&.left_wide > .grid-cell:first-child {
+			@include span-columns(8 of 12);
+		}
+		&.left_wide > .grid-cell:last-child {
+			@include span-columns(4 of 12);
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+# ACF Column Options
+--------------------------------------------------------------*/
+.acf_wide {
+	&.gray {
+		background-color: $ultralight-gray;
+	}
+	&.center {
+		text-align: center;
+	}
+	&.padded {
+		padding-top: 20px;
+		padding-bottom: 10px;
+		@include media($medium) {
+			padding-top: 40px;
+			padding-bottom: 20px;
+		}
+	}
+	@include media($medium) {
+		&.verticalcenter {
+			.acf_columns {
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			}
+		}
+	}
+}

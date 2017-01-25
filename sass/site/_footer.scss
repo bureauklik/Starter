@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+	background-color: $ultralight-gray;
+	.footer-widgets {
+	    padding-top: 3em;
+		@include media($medium) {
+			.widget-column {
+				@include span-columns(4);
+			}
+		}
+	}
+	.site-info {
+		background-color: $light-gray;
+		text-align: center;
+		padding: $small-spacing;
+		@include media($medium) {
+			padding: $base-spacing;
+		}
+	}
+}
+

@@ -1,0 +1,145 @@
+html .mceContentBody {
+	max-width: 700px;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 1.5em 0 1.5em 1.5em;
+  padding: 0; }
+
+ul {
+  list-style: disc; }
+
+ol {
+  list-style: decimal; }
+
+li > ul,
+li > ol {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.entry-content li {
+  margin-top: .25em;
+  margin-bottom: .25em; }
+.entry-content li > ul,
+.entry-content li > ol {
+  margin-top: .25em;
+  margin-bottom: .25em; }
+
+dl {
+  margin: 1.5em 0; }
+
+dt {
+  font-weight: 600;
+  margin: 0; }
+
+dd {
+  margin-left: 2em; }
+
+/* tables */
+table {
+  border-collapse: collapse;
+  margin: 1em 0 2em;
+  table-layout: auto;
+  width: 100%; }
+
+th {
+  border-bottom: 1px solid #999999;
+  font-weight: 600;
+  padding: 0.5em 0;
+  text-align: left; }
+
+td {
+  border-bottom: 1px solid #cccccc;
+  padding: 0.5em 0; }
+
+tr,
+td,
+th {
+  vertical-align: top; }
+
+/* Typography */
+body {
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1.2; }
+
+h1 {
+  font-size: 2em;
+  font-weight: 400;
+  margin: .67em 0; }
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  font-weight: 500; }
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0; }
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0; }
+
+h5 {
+  font-size: .83em;
+  margin: 1.67em 0; }
+
+h6 {
+  font-size: .67em;
+  margin: 2.33em 0; }
+
+p {
+  margin: 1em 0; }
+
+@media screen and (min-width: 1660px) {
+  body {
+    font-size: 1.063em; } }
+
+a {
+  color: #1268a1;
+  text-decoration: none;
+  transition: color 150ms ease; }
+  a:active, a:focus, a:hover {
+    color: #5995bd; }
+
+hr {
+  border-bottom: 1px solid #cccccc;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+blockquote {
+  background: #f2f2f2;
+  margin: 2em 0;
+  padding: 1em 1.5em;
+  padding-left: 4.5em;
+  position: relative;
+  quotes: "“" "”" "“" "’"; }
+
+blockquote:before {
+  color: #1268a1;
+  content: open-quote;
+  font-size: 4em;
+  position: absolute;
+  top: 0;
+  left: 1.5rem; }
+

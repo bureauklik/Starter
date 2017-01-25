@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+.comments-area {
+	margin-bottom: $base-spacing;
+	.comments-title {
+		font-size: 1.25em;
+	}
+	ol.comment-list {
+		font-size: .875em;
+		list-style: none;
+		margin: 0 0 $base-spacing;
+		padding: 0;
+		li.comment,
+		li.pingback {
+			padding: 1em;
+			margin-bottom: $small-spacing;
+			background: $ultralight-gray;
+		}
+		li.comment {
+			&.bypostauthor {
+				border: 2px solid $light-gray;
+			}
+			img.avatar {
+				float: right; 
+				margin: 0 0 1em 1em;
+			}
+			.comment-meta {
+				margin-bottom: .5em;
+			}
+			.comment-metadata {
+				margin-bottom: $small-spacing;
+				a {
+					color: $medium-gray;
+				}
+			} 
+			ol.children {
+				padding: 0;
+				list-style: none;
+				margin: $small-spacing 0;
+				li {
+					margin-bottom: 0;
+				}
+				li.odd {
+				 	background: white;
+				}
+			}
+		}
+	}
+	.comment-respond {
+		.required {
+			color: $red;
+		}
+	}
+}

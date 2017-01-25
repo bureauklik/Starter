@@ -1,0 +1,131 @@
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body {
+	color: $base-font-color;
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	@include media($small) {
+		font-size: 1.125em;
+	}
+	@include media($xlarge) {
+		font-size: 1.063em;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $heading-font-family;
+	line-height: $heading-line-height;
+	font-weight: 700;
+	padding: 1em 0 0;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	padding-top: 0;
+}
+
+h1 { 
+	font-size: 2em;
+	font-weight: 400;
+	margin: 0 0 .67em;
+	@include media($small) {
+		font-size: 1.75em;
+	}
+}
+
+h2 { 
+	font-size: 1.5em;
+	font-weight: 400;
+	margin: 0 0 0.83em;
+	@include media($small) {
+		font-size: 1.5em;
+	}
+}
+
+h3 { 
+	font-size: 1.17em;
+	margin: 0 0 1em;
+}
+
+h4 { 
+	font-size: 1em;
+	margin: 0 0 1.33em;
+}
+
+h5 {
+	font-size: .83em;
+	margin: 0 0 1.67em;
+}
+
+h6 {
+	font-size: .67em;
+	margin: 0 0 2.33em;
+}
+
+p {
+  margin: 0 0 $base-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 25%);
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+blockquote {
+	background: $ultralight-gray;
+	margin: $base-spacing 0;
+	padding: 1em 1.5em;
+	padding-left: 4.5em;
+	position: relative;
+	quotes: "\201C""\201D""\201C""\2019";
+}
+
+blockquote:before {
+	color: $action-color;
+	content: open-quote;
+	font-size: 4em;
+	position: absolute;
+	top: 0;
+	left: 1.5rem;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
