@@ -29,18 +29,18 @@
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title screen-reader-text" itemprop="name"><?php bloginfo( 'name' ); ?></h1>
+					<h1 class="site-title" itemprop="name"><?php bloginfo( 'name' ); ?></h1>
 				<?php else : ?>
-					<span class="site-title screen-reader-text" itemprop="name"><?php bloginfo( 'name' ); ?></span>
+					<span class="site-title" itemprop="name"><?php bloginfo( 'name' ); ?></span>
 				<?php
 				endif;
 	
 				$description = get_bloginfo( 'description', 'display' );
 				if ( $description || is_customize_preview() ) : ?>
-					<span class="site-description screen-reader-text" itemprop="description"><?php echo $description; /* WPCS: xss ok. */ ?></span>
+					<span class="site-description" itemprop="description"><?php echo $description; /* WPCS: xss ok. */ ?></span>
 				<?php
 				endif; ?>
-				<img width="190" height="48" class="site-logo" itemprop="logo" src="<?php echo get_template_directory_uri() ?>/img/starter-logo.png" alt="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ) ?>" srcset="<?php echo get_template_directory_uri() ?>/img/starter-logo@2x.png 2x">
+				<img width="190" height="48" class="site-logo" itemprop="logo" src="<?php echo get_template_directory_uri() ?>/img/starter-logo.png" alt="Logo <?php bloginfo( 'name' ); ?>" srcset="<?php echo get_template_directory_uri() ?>/img/starter-logo@2x.png 2x">
 			</a>
 
 		</div><!-- .site-branding -->

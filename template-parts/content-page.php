@@ -32,24 +32,8 @@
 			) );
 		?>
 
-		<?php if( class_exists( 'acf' ) ) { get_template_part( 'template-parts/acf_columns' ); } ?>
+		<?php if( class_exists( 'acf' ) ) { get_template_part( 'template-parts/acf_layouts' ); } ?>
 
 	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'strt' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<span class="edit-link">' . strt_get_svg( array( 'icon' => 'edit' ) ),
-					'</span>'
-				);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
 
 </article><!-- #post-## -->

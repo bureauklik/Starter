@@ -306,6 +306,15 @@ function revoke_gforms_editor_access() {
 
 
 /*--------------------------------------------------------------
+# Set tabindex to 0 al all Gravity Forms
+--------------------------------------------------------------*/
+function change_tabindex( $tabindex, $form ) {
+    return 0;
+}
+add_filter( 'gform_tabindex', 'change_tabindex' , 10, 2 );
+
+
+/*--------------------------------------------------------------
 # Remove admin menu items
 --------------------------------------------------------------*/
 if( !current_user_can('administrator') ) {

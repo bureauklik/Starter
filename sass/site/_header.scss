@@ -2,18 +2,20 @@
 # Header
 --------------------------------------------------------------*/
 .site-header {
-	margin-bottom: $small-spacing;
-	@include media($medium) {
-		margin-bottom: $base-spacing;
-	}
 	position: relative;
 
 	.site-branding {
 		float: left;
-		.site-logo {
-			display: block;
-			margin: 1em 0;
-		}
+	}
+
+	.site-title,
+	.site-description {
+		@extend .screen-reader-text;
+	}
+		
+	.site-logo {
+		display: block;
+		margin: 1em 0;
 	}
 
 	.menu-toggle {

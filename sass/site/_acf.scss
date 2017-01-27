@@ -63,10 +63,10 @@
 	}
 	&.padded {
 		padding-top: 20px;
-		padding-bottom: 10px;
+		padding-bottom: 15px;
 		@include media($medium) {
 			padding-top: 40px;
-			padding-bottom: 20px;
+			padding-bottom: 30px;
 		}
 	}
 	@include media($medium) {

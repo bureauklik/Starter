@@ -4,7 +4,6 @@
 .site-footer {
 	background-color: $ultralight-gray;
 	.footer-widgets {
-	    padding-top: 3em;
 		@include media($medium) {
 			.widget-column {
 				@include span-columns(4);
