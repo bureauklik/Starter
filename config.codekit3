@@ -27,6 +27,14 @@
 		"oAP": "\/archive.php",
 		"oF": 0
 		},
+	"\/bower.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/bower-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/comments.php": {
 		"ft": 8192,
 		"oA": 2,
