@@ -1,30 +1,31 @@
-/*--------------------------------------------------------------
-# ACF Wide Columns
---------------------------------------------------------------*/
-jQuery(function(t) {
-	var e = t("body");
-	var r = function() {
-		t(".acf_wide:not([data-stretch-type='standard'])").each(function() {
-			var r = t(this);
-			r.css({
-				"margin-left": 0,
-				"margin-right": 0,
-				"padding-left": 0,
-				"padding-right": 0
-			});
-			var i = r.offset().left - e.offset().left,
-				n = e.outerWidth() - i - r.parent().outerWidth();
-			r.css({
-				"margin-left": -i,
-				"margin-right": -n,
-				"padding-left": "full" === r.data("stretch-type") ? i : '',
-				"padding-right": "full" === r.data("stretch-type") ? n : ''
-			});
-		})
-	};
-	t(window).resize(r), r()
-});
+$(document).ready(function() {
 
+	/*--------------------------------------------------------------
+	# ACF Wide Columns
+	--------------------------------------------------------------*/
+	var e = $("body");
+	var r = function() {
+			$(".acf-wide:not([data-stretch-type='standard'])").each(function() {
+				var r = $(this);
+				r.css({
+					"margin-left": 0,
+					"margin-right": 0,
+					"padding-left": 0,
+					"padding-right": 0
+				});
+				var i = r.offset().left - e.offset().left,
+					n = e.outerWidth() - i - r.parent().outerWidth();
+				r.css({
+					"margin-left": -i,
+					"margin-right": -n,
+					"padding-left": "full" === r.data("stretch-type") ? i : '',
+					"padding-right": "full" === r.data("stretch-type") ? n : ''
+				});
+			});
+		};
+	$(window).resize(r);
+
+});
 
 /**
  * File navigation.js.
@@ -75,12 +76,6 @@ jQuery(function(t) {
 	// Get all the link elements within the menu.
 	links    = menu.getElementsByTagName( 'a' );
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
-
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
@@ -101,6 +96,12 @@ jQuery(function(t) {
 
 			self = self.parentElement;
 		}
+	}
+
+	// Each time a menu link is focused or blurred, toggle focus.
+	for ( i = 0, len = links.length; i < len; i++ ) {
+		links[i].addEventListener( 'focus', toggleFocus, true );
+		links[i].addEventListener( 'blur', toggleFocus, true );
 	}
 
 	/**

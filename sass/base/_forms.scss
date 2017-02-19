@@ -29,7 +29,7 @@ textarea {
 }
 
 #{$all-text-inputs} {
-//   appearance: none;
+   appearance: none;
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -60,7 +60,7 @@ textarea {
   }
 
   &::placeholder {
-//     color: tint($base-font-color, 40%);
+    color: tint($base-font-color, 40%);
   }
 }
 
@@ -104,6 +104,5 @@ select {
 }
 
 .search-form .search-submit .icon {
-	height: 18px;
-	width: 18px;
+	vertical-align: top;
 }

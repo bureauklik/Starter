@@ -81,7 +81,7 @@ add_action( 'widgets_init', 'strt_widgets_init' );
 --------------------------------------------------------------*/
 function strt_scripts() {
 	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style.css', array(), null );
-	wp_enqueue_script( 'strt-navigation', get_template_directory_uri() . '/js/strt-scripts.js', array('jquery'), null, true );
+	wp_enqueue_script( 'strt-navigation', get_template_directory_uri() . '/js/strt-scripts-min.js', array('jquery'), null, true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -243,12 +243,6 @@ add_filter('the_content', 'filter_ptags_on_images', 9999);
 
 
 /*--------------------------------------------------------------
-# Enable WP link manager
---------------------------------------------------------------*/
-// add_filter('pre_option_link_manager_enabled', '__return_true');
-
-
-/*--------------------------------------------------------------
 # Add descriptions to menu items
 --------------------------------------------------------------*/
 function strt_nav_description( $item_output, $item, $depth, $args ) {
@@ -278,9 +272,25 @@ add_shortcode( 'button', 'strt_button_shortcode' );
 
 
 /*--------------------------------------------------------------
+# Icon shortcode
+--------------------------------------------------------------*/
+function strt_icon_shortcode( $atts ) {
+	extract( shortcode_atts(
+		array(
+			'icon' => 'chain',
+		), $atts )
+	);
+	return '<span class="icontainer">' . strt_get_svg( array( 'icon' => $icon ) ) . '</span>';
+}
+add_shortcode( 'icon', 'strt_icon_shortcode' );
+
+
+/*--------------------------------------------------------------
 # Remove Gravity Forms 'Add Form' button
 --------------------------------------------------------------*/
-add_filter( 'gform_display_add_form_button', '__return_false');
+if( !current_user_can('administrator') ) {
+	add_filter( 'gform_display_add_form_button', '__return_false');
+}
 
 
 /*--------------------------------------------------------------

@@ -3,38 +3,13 @@
 --------------------------------------------------------------*/
 ul,
 ol {
-	margin: 1.5em 0 1.5em 1.5em;
-	padding: 0;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.entry-content {
-	li {
-		margin-top: .25em;
-		margin-bottom: .25em;
-	}
-	li > ul,
-	li > ol {
-		margin-top: .25em;
-		margin-bottom: .25em;
-	}
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 dl {
-	margin: 1.5em 0;
+  margin: 0;
 }
 
 dt {
@@ -43,5 +18,51 @@ dt {
 }
 
 dd {
-  margin-left: 2em;
+  margin: 0;
+}
+
+.entry-content {
+	ul,
+	ol {
+		margin: 1.5em 0 1.5em 1.5em;
+		padding: 0;
+	}
+	
+	ul {
+		list-style: disc;
+	}
+	
+	ol {
+		list-style: decimal;
+	}
+	
+	li > ul,
+	li > ol {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	li {
+		margin-top: .25em;
+		margin-bottom: .25em;
+	}
+
+	li > ul,
+	li > ol {
+		margin-top: .25em;
+		margin-bottom: .25em;
+	}
+
+	dl {
+		margin: 1.5em 0;
+	}
+	
+	dt {
+	  font-weight: 600;
+	  margin: 0;
+	}
+	
+	dd {
+	  margin-left: 2em;
+	}
 }

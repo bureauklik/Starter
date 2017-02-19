@@ -32,7 +32,7 @@
 			) );
 		?>
 
-		<?php if( class_exists( 'acf' ) ) { get_template_part( 'template-parts/acf_layouts' ); } ?>
+		<?php if( class_exists( 'acf' ) ) { get_template_part( 'template-parts/content', 'acf' ); } ?>
 
 	</div><!-- .entry-content -->
 

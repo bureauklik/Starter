@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # ACF Columns
 --------------------------------------------------------------*/
-.acf_wide {
+.acf-wide {
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -17,35 +17,35 @@
 	}
 }
 
-.acf_columns {
+.acf-columns {
 	@include media($medium) {
 		@include clearfix();
-		&.cols_1 > .grid-cell {
+		&.cols-1 > .grid-cell {
 			@include span-columns(12 of 12);
 		}
-		&.cols_1_small > .grid-cell {
+		&.cols-1-small > .grid-cell {
 			@include span-columns(8 of 12);
 			@include shift(2);
 		}
-		&.cols_2 > .grid-cell {
+		&.cols-2 > .grid-cell {
 			@include span-columns(6 of 12);
 		}
-		&.cols_3 > .grid-cell {
+		&.cols-3 > .grid-cell {
 			@include span-columns(4 of 12);
 		}
-		&.cols_4 > .grid-cell {
+		&.cols-4 > .grid-cell {
 			@include span-columns(3 of 12);
 		}
-		&.right_wide > .grid-cell:first-child {
+		&.right-wide > .grid-cell:first-child {
 			@include span-columns(4 of 12);
 		}
-		&.right_wide > .grid-cell:last-child {
+		&.right-wide > .grid-cell:last-child {
 			@include span-columns(8 of 12);
 		}
-		&.left_wide > .grid-cell:first-child {
+		&.left-wide > .grid-cell:first-child {
 			@include span-columns(8 of 12);
 		}
-		&.left_wide > .grid-cell:last-child {
+		&.left-wide > .grid-cell:last-child {
 			@include span-columns(4 of 12);
 		}
 	}
@@ -54,9 +54,12 @@
 /*--------------------------------------------------------------
 # ACF Column Options
 --------------------------------------------------------------*/
-.acf_wide {
+.acf-wide {
 	&.gray {
 		background-color: $ultralight-gray;
+	}
+	&.red {
+		background-color: $red;
 	}
 	&.center {
 		text-align: center;
@@ -71,7 +74,7 @@
 	}
 	@include media($medium) {
 		&.verticalcenter {
-			.acf_columns {
+			.acf-columns {
 			    display: flex;
 			    justify-content: center;
 			    align-items: center;

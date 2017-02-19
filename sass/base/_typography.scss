@@ -1,4 +1,3 @@
-
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -77,45 +76,52 @@ h6 {
 }
 
 p {
-  margin: 0 0 $base-spacing;
+	margin: 0 0 $base-spacing;
 }
 
 a {
-  color: $action-color;
-  text-decoration: none;
-  transition: color $base-duration $base-timing;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: shade($action-color, 25%);
-  }
+	color: $action-color;
+	text-decoration: none;
+	transition: color $base-duration $base-timing;
+	
+	&:active,
+	&:focus,
+	&:hover {
+		color: shade($action-color, 25%);
+	}
 }
 
 hr {
-  border-bottom: $base-border;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  margin: $base-spacing 0;
+	border-bottom: $base-border;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	margin: $base-spacing 0;
 }
 
 blockquote {
 	background: $ultralight-gray;
 	margin: $base-spacing 0;
-	padding: 1em 1.5em;
-	padding-left: 4.5em;
+	padding: 1.5em;
 	position: relative;
 	quotes: "\201C""\201D""\201C""\2019";
+	p {
+		margin-bottom: .5em;
+	}
+	@include media($medium) {
+		padding-left: 4.5em;
+	}
 }
 
-blockquote:before {
-	color: $action-color;
-	content: open-quote;
-	font-size: 4em;
-	position: absolute;
-	top: 0;
-	left: 1.5rem;
+@include media($medium) {
+	blockquote:before {
+		color: $action-color;
+		content: open-quote;
+		font-size: 4em;
+		position: absolute;
+		top: 0;
+		left: 1.5rem;
+	}
 }
 
 pre {

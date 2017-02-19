@@ -1,5 +1,4 @@
 <?php
-
 if( class_exists( 'acf' ) ) {
 	if( have_rows( 'layouts' ) ): $i = 0;
 		while ( have_rows( 'layouts' ) ) : $i++; the_row();
@@ -25,32 +24,31 @@ if( class_exists( 'acf' ) ) {
 						$background = sprintf( $background,
 							esc_attr(get_sub_field( 'row_image' ))
 						);
-						$row_class .= ' bg_img';
 					} else {
 						$background = '';
 					}
 
-					echo '<div class="acf_wide ' . $row_class . ' ' . $options . '" data-stretch-type="' . $row_layout . '"' . $background .' id="row-'.$i.'">';
-					echo '<div class="acf_columns ' . $column_type . '">';
+					echo '<div class="acf-wide ' . $row_class . ' ' . $options . '" data-stretch-type="' . $row_layout . '"' . $background .' id="row-'.$i.'">';
+					echo '<div class="acf-columns ' . $column_type . '">';
 
 					if ( get_sub_field( 'column_type' ) == 'cols_1' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'cols_1_small' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'cols-1-small' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'cols_2' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'cols-2' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_2' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'cols_3' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'cols-3' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_2' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_3' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'left_wide' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'left-wide' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_2' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'right_wide' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'right-wide' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_2' ) . '</div>';
-					} elseif ( get_sub_field( 'column_type' ) == 'cols_4' ) {
+					} elseif ( get_sub_field( 'column_type' ) == 'cols-4' ) {
 						echo '<div class="grid-cell">' . get_sub_field( 'col_1' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_2' ) . '</div>';
 						echo '<div class="grid-cell">' . get_sub_field( 'col_3' ) . '</div>';
