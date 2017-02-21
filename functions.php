@@ -33,7 +33,7 @@ add_action( 'after_setup_theme', 'strt_setup' );
 # Content width
 --------------------------------------------------------------*/
 function strt_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'strt_content_width', 1160 );
+	$GLOBALS['content_width'] = apply_filters( 'strt_content_width', 760 );
 }
 add_action( 'after_setup_theme', 'strt_content_width', 0 );
 
@@ -80,7 +80,7 @@ add_action( 'widgets_init', 'strt_widgets_init' );
 # Enqueue JS + CSS
 --------------------------------------------------------------*/
 function strt_enqueue_scripts() {
-	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style.css', array(), null );
+	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style-min.css', array(), null );
 	wp_enqueue_script( 'strt-scripts', get_template_directory_uri() . '/js/strt-scripts-min.js', array('jquery'), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'strt_enqueue_scripts' );

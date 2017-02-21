@@ -24,20 +24,16 @@ $youtube: #bb0000;
 
 
 /* Social nav */
-.social-links-menu {
+ul.social-links-menu {
 	margin: 0;
-	padding: .25em 0;
-	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+
 	li {
-		display: inline-block;
-		padding: 0;
 		margin: 0 .125em;
-	}
-	
-	.icon {
-		height: 1.125em;
-		width: 1.125em;
-		top: .0625em;
+		padding: .25em 0;
 	}
 	
 	a {

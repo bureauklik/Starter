@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Starter\n"
-"POT-Creation-Date: 2017-01-25 23:15+0100\n"
-"PO-Revision-Date: 2017-01-25 23:16+0100\n"
+"POT-Creation-Date: 2017-02-19 14:57+0100\n"
+"PO-Revision-Date: 2017-02-19 14:57+0100\n"
 "Last-Translator: Bas Middelham <bas@middelham.nl>\n"
 "Language-Team: Bas Middelham <bas@middelham.nl>\n"
 "Language: nl_NL\n"
@@ -65,6 +65,11 @@ msgstr "Nieuwere reacties"
 msgid "Comments are closed."
 msgstr "Reacties zijn gesloten"
 
+#: footer.php:34
+#, php-format
+msgid "Website by %1$s."
+msgstr "Website door %1$s."
+
 #: functions.php:12
 msgid "Primary"
 msgstr "Hoofdmenu"
@@ -89,15 +94,15 @@ msgstr "Footer 2"
 msgid "Footer 3"
 msgstr "Footer 3"
 
-#: functions.php:154
+#: functions.php:151
 msgid "Post Header"
 msgstr "Bericht Header"
 
-#: functions.php:155
+#: functions.php:152
 msgid "Post Header Large"
 msgstr "Grote Bericht Header"
 
-#: functions.php:175
+#: functions.php:172
 msgid "Read More"
 msgstr "Lees verder"
 
@@ -178,7 +183,7 @@ msgstr "Geplaatst in %1$s"
 msgid "Tagged %1$s"
 msgstr "Tagged %1$s"
 
-#: inc/template-tags.php:78 template-parts/content-page.php:45
+#: inc/template-tags.php:78
 #, php-format
 msgid "Edit %s"
 msgstr "Bewerken %s"
