@@ -13,7 +13,7 @@ a.button,
   font-family: $base-font-family;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1;
   padding: $small-spacing $base-spacing;
   text-align: center;
@@ -40,6 +40,7 @@ a.button,
 }
 
 .btn_container {
+	margin: 0 0 1.5em;
 	&.left {
 		text-align: left;
 	}

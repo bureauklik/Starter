@@ -3,13 +3,13 @@
 /*--------------------------------------------------------------
 # Load jquery from CDN
 --------------------------------------------------------------*/
-function register_jquery() {
+function latest_jquery() {
 	if (!is_admin() && $GLOBALS['pagenow'] != 'wp-login.php') {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null);
+		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null);
 	}
 }
-add_action( 'wp_enqueue_scripts', 'register_jquery' );
+add_action( 'wp_enqueue_scripts', 'latest_jquery', 10 );
 
 
 /*--------------------------------------------------------------

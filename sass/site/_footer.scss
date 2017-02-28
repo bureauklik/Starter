@@ -1,22 +1,26 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.site-footer {
+#colophon {
 	background-color: $ultralight-gray;
-	.footer-widgets {
-		@include media($medium) {
-			.widget-column {
+
+	.widget-area {
+		@include clearfix();
+		> div {
+			@include span-columns(12);
+			@include omega();
+			@include media($medium) {
 				@include span-columns(4);
 			}
 		}
 	}
-	.site-info {
-		background-color: $light-gray;
-		text-align: center;
-		padding: $small-spacing;
-		@include media($medium) {
-			padding: $base-spacing;
-		}
-	}
 }
 
+#socket {
+	background-color: $light-gray;
+	text-align: center;
+	padding: $small-spacing;
+	@include media($medium) {
+		padding: $base-spacing;
+	}
+}

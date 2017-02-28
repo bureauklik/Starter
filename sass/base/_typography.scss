@@ -1,6 +1,19 @@
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+.wf-loading {
+	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
+		opacity: 0;
+	}
+}
+
+.wf-active {
+	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
+		opacity: 1;
+		transition: opacity .15s;
+	}
+}
+
 body {
 	color: $base-font-color;
 	font-family: $base-font-family;
@@ -8,12 +21,6 @@ body {
 	line-height: $base-line-height;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	@include media($small) {
-		font-size: 1.125em;
-	}
-	@include media($xlarge) {
-		font-size: 1.063em;
-	}
 }
 
 h1,
@@ -24,7 +31,7 @@ h5,
 h6 {
 	font-family: $heading-font-family;
 	line-height: $heading-line-height;
-	font-weight: 700;
+	font-weight: bold;
 	padding: 1em 0 0;
 }
 
@@ -39,20 +46,12 @@ h6:first-child {
 
 h1 { 
 	font-size: 2em;
-	font-weight: 400;
 	margin: 0 0 .67em;
-	@include media($small) {
-		font-size: 1.75em;
-	}
 }
 
 h2 { 
 	font-size: 1.5em;
-	font-weight: 400;
 	margin: 0 0 0.83em;
-	@include media($small) {
-		font-size: 1.5em;
-	}
 }
 
 h3 { 
@@ -87,10 +86,17 @@ a {
 	&:active,
 	&:focus,
 	&:hover {
-		color: shade($action-color, 25%);
+		color: shade( $action-color, 25% );
 	}
 }
 
+:focus {
+	outline: tint( $action-color, 50% ) dotted 1px;
+}
+
+label {
+	font-weight: bold;
+}
 hr {
 	border-bottom: $base-border;
 	border-left: 0;
@@ -108,7 +114,7 @@ blockquote {
 	p {
 		margin-bottom: .5em;
 	}
-	@include media($medium) {
+	@include media( $medium ) {
 		padding-left: 4.5em;
 	}
 }

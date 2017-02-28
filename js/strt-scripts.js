@@ -1,8 +1,12 @@
+// @codekit-prepend '../bower_components/webfontloader/webfontloader.js'
+// @codekit-prepend '../bower_components/jquery/dist/jquery.slim.js'
+
+
+/*--------------------------------------------------------------
+# ACF Wide Columns
+--------------------------------------------------------------*/
 $(document).ready(function() {
 
-	/*--------------------------------------------------------------
-	# ACF Wide Columns
-	--------------------------------------------------------------*/
 	var e = $("body");
 	var r = function() {
 			$(".acf-wide:not([data-stretch-type='standard'])").each(function() {

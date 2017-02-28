@@ -80,23 +80,33 @@ add_action( 'widgets_init', 'strt_widgets_init' );
 # Enqueue JS + CSS
 --------------------------------------------------------------*/
 function strt_enqueue_scripts() {
-	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style-min.css', array(), null );
-	wp_enqueue_script( 'strt-scripts', get_template_directory_uri() . '/js/strt-scripts-min.js', array('jquery'), null, true );
+// 	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style-min.css', array(), null );
+// 	wp_enqueue_script( 'strt-scripts', get_template_directory_uri() . '/js/strt-scripts-min.js', array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'strt_enqueue_scripts' );
 
 
 /*--------------------------------------------------------------
-# Add Inline CSS to wp_head
+# Add CSS to wp_head
 --------------------------------------------------------------*/
 function strt_inline_css() {
-	$css = file_get_contents( get_template_directory() . '/stylesheets/style.css');
+	$css = file_get_contents( get_template_directory() . '/stylesheets/style-min.css');
 	// Remove UTF-8 Bom
     $bom = pack('H*','EFBBBF');
     $css = preg_replace("/^$bom/", '', $css);
 	echo '<style>' . $css . '</style>';
 }
-// add_action( 'wp_head', 'strt_inline_css', 9999 );
+add_action( 'wp_head', 'strt_inline_css', 9999 );
+
+/*--------------------------------------------------------------
+# Add scripts to wp_footer
+--------------------------------------------------------------*/
+function strt_inline_scripts() {
+	$scripts = file_get_contents( get_template_directory() . '/js/strt-scripts-min.js');
+	echo '<script>' . $scripts . '</script>';
+}
+add_action( 'wp_footer', 'strt_inline_scripts', 9999 );
+
 
 
 /*--------------------------------------------------------------
@@ -140,8 +150,6 @@ function strt_remove_default_image_sizes( $sizes) {
 add_filter('intermediate_image_sizes_advanced', 'strt_remove_default_image_sizes');
 
 // Add custom sizes
-add_image_size( 'post_grid', 360, 240, true );
-add_image_size( 'post_grid_large', 540, 360, true );
 add_image_size( 'post_header', 760, 326, true );
 add_image_size( 'post_header_large', 1160, 497, true ); 
 
@@ -280,6 +288,15 @@ function strt_icon_shortcode( $atts ) {
 	return '<span class="icontainer">' . strt_get_svg( array( 'icon' => $icon ) ) . '</span>';
 }
 add_shortcode( 'icon', 'strt_icon_shortcode' );
+
+
+/*--------------------------------------------------------------
+# Place Gravityforms jquery in footer
+--------------------------------------------------------------*/
+function strt_gravityforms_footerscripts() {
+	return true;
+}
+add_filter("gform_init_scripts_footer", "strt_gravityforms_footerscripts");
 
 
 /*--------------------------------------------------------------

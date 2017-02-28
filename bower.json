@@ -19,10 +19,10 @@
     "none"
   ],
   "license": "MIT",
-  "homepage": "https://google.com",
+  "homepage": "http://strt.middelham.nl",
   "repository": {
     "type": "git",
-    "url": "git://github.com/foo/bar.git"
+    "url": "git://github.com/MoshCat/starter.git"
   },
   "ignore": [
     "**/.*",
@@ -33,5 +33,7 @@
   ],
   "private": true,
   "dependencies": {
+    "jquery": "^3.1.1",
+    "webfontloader": "^1.6.27"
   }
 }

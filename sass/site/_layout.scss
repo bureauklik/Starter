@@ -10,9 +10,9 @@ body {
 	background: $base-background-color;
 }
 
-.site-header,
-.site-content,
-.footer-widgets {
+#masthead,
+#content,
+#colophon .widget-area {
 	padding-left: 20px;
 	padding-right: 20px;
 	@include media($large) {
@@ -46,5 +46,4 @@ body {
 		@include span-columns(8);
 		@include shift(2);
 	}
-
 }
