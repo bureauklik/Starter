@@ -5,13 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="alternate" hreflang="<?php bloginfo( 'language' ); ?>" href="<?php echo esc_url( home_url() ); ?>" />
-<script>document.documentElement.className += ' wf-loading';</script>
 <script>
-	WebFontConfig = {
-		google: {
-			families: ['Rubik']
-		},
-	};
+	document.documentElement.className += ' wf-loading';
+	WebFontConfig = { google: {	families: ['Rubik']	}, };
 </script>
 <?php wp_head(); ?>
 </head>

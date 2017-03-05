@@ -1,19 +1,6 @@
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-.wf-loading {
-	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
-		opacity: 0;
-	}
-}
-
-.wf-active {
-	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
-		opacity: 1;
-		transition: opacity .15s;
-	}
-}
-
 body {
 	color: $base-font-color;
 	font-family: $base-font-family;
@@ -140,4 +127,17 @@ pre {
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.6em;
+}
+
+.wf-loading {
+	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
+		opacity: 0;
+	}
+}
+
+.wf-active {
+	h1, h2, h3, h4, h5, h6, p, a, span, li, td, button, input {
+		opacity: 1;
+		transition: opacity .15s;
+	}
 }

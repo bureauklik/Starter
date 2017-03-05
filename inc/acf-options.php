@@ -1,5 +1,5 @@
 <?php if( function_exists('acf_add_local_field_group') ):
-
+	
 	/*--------------------------------------------------------------
 	# Subheadings
 	--------------------------------------------------------------*/
@@ -8,23 +8,11 @@
 		'title' => 'Subheading',
 		'fields' => array (
 			array (
-				'default_value' => '',
-				'maxlength' => '',
 				'placeholder' => 'Subheading',
-				'prepend' => '',
-				'append' => '',
 				'key' => 'field_strt_subheading',
 				'label' => 'Subheading',
 				'name' => 'subheading',
 				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array (
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
 			),
 		),
 		'location' => array (
@@ -38,12 +26,7 @@
 		),
 		'menu_order' => 0,
 		'position' => 'acf_after_title',
-		'style' => 'seamless',
-		'label_placement' => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen' => '',
-		'active' => 1,
-		'description' => '',
+// 		'style' => 'seamless',
 	));
 
 
@@ -133,11 +116,7 @@
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
+				'wrapper' => array ( 'width' => '', 'class' => '', 'id' => '' ),
 			),
 		),
 		'location' => array (

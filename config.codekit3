@@ -69,7 +69,7 @@
 	"\/bower_components\/jquery\/dist\/jquery.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 2,
+		"oA": 1,
 		"oAP": "\/bower_components\/jquery\/dist\/jquery.js",
 		"oF": 0,
 		"sC": 1,
@@ -93,7 +93,7 @@
 	"\/bower_components\/jquery\/dist\/jquery.slim.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "\/bower_components\/jquery\/dist\/jquery.slim.js",
 		"oF": 0,
 		"sC": 1,
@@ -1500,6 +1500,15 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
+	"\/js\/navigation.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/js\/navigation-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/js\/strt-scripts-min.js": {
 		"ft": 64,
 		"mi": 1,
@@ -1515,7 +1524,7 @@
 		"oA": 0,
 		"oAP": "\/js\/strt-scripts-min.js",
 		"oF": 1,
-		"sC": 1,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/languages\/nl_NL.mo": {
@@ -2903,7 +2912,7 @@
 	"creationDate": 508370210,
 	"displayValue": "starter",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "brackets_brown"
+	"iconImageName": "meme-ron"
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

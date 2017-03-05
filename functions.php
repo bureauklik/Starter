@@ -80,15 +80,12 @@ add_action( 'widgets_init', 'strt_widgets_init' );
 # Enqueue JS + CSS
 --------------------------------------------------------------*/
 function strt_enqueue_scripts() {
-// 	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style-min.css', array(), null );
-// 	wp_enqueue_script( 'strt-scripts', get_template_directory_uri() . '/js/strt-scripts-min.js', array(), null, true );
+	wp_enqueue_style( 'strt-style', get_template_directory_uri() . '/stylesheets/style-min.css', array(), null );
+	wp_enqueue_script( 'strt-scripts', get_template_directory_uri() . '/js/strt-scripts-min.js', array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'strt_enqueue_scripts' );
 
-
-/*--------------------------------------------------------------
-# Add CSS to wp_head
---------------------------------------------------------------*/
+// Add CSS to wp_head
 function strt_inline_css() {
 	$css = file_get_contents( get_template_directory() . '/stylesheets/style-min.css');
 	// Remove UTF-8 Bom
@@ -96,17 +93,14 @@ function strt_inline_css() {
     $css = preg_replace("/^$bom/", '', $css);
 	echo '<style>' . $css . '</style>';
 }
-add_action( 'wp_head', 'strt_inline_css', 9999 );
+// add_action( 'wp_head', 'strt_inline_css', 9999 );
 
-/*--------------------------------------------------------------
-# Add scripts to wp_footer
---------------------------------------------------------------*/
+// Add scripts to wp_footer
 function strt_inline_scripts() {
 	$scripts = file_get_contents( get_template_directory() . '/js/strt-scripts-min.js');
 	echo '<script>' . $scripts . '</script>';
 }
-add_action( 'wp_footer', 'strt_inline_scripts', 9999 );
-
+// add_action( 'wp_footer', 'strt_inline_scripts', 9999 );
 
 
 /*--------------------------------------------------------------
@@ -115,40 +109,57 @@ add_action( 'wp_footer', 'strt_inline_scripts', 9999 );
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/cleanup.php';
-require get_template_directory() . '/inc/acf-options.php';
-require get_template_directory() . '/inc/acf-layouts.php';
 require get_template_directory() . '/inc/icon-functions.php';
 require get_template_directory() . '/inc/social-widget.php';
 
 
 /*--------------------------------------------------------------
-# Add WP Admin style
+# ACF
 --------------------------------------------------------------*/
-function strt_admin_style() {
-	wp_enqueue_style('admin-styles', get_template_directory_uri().'/stylesheets/admin-style.css');
+require get_template_directory() . '/inc/acf-options.php';
+require get_template_directory() . '/inc/acf-layouts.php';
+
+// Allow Google maps in ACF
+function strt_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyCpQLgJ8Rgky_DqC7wdxwQFGjtmOECfu6A');
 }
-add_action('admin_enqueue_scripts', 'strt_admin_style');
+add_action('acf/init', 'strt_acf_init');
 
 
 /*--------------------------------------------------------------
-# Add WP Editor style
+# WP Admin
 --------------------------------------------------------------*/
+// Add WP Editor style
 function strt_editor_styles() {
     add_editor_style( 'stylesheets/editor-style.css' );
 }
 add_action( 'admin_init', 'strt_editor_styles' );
 
+// Add WP Admin style
+function strt_admin_style() {
+	wp_enqueue_style('admin-styles', get_template_directory_uri().'/stylesheets/admin-style.css');
+}
+add_action('admin_enqueue_scripts', 'strt_admin_style');
+
+// Remove admin menu items
+if( !current_user_can('administrator') ) {
+	function remove_menus(){
+		remove_menu_page( 'edit-comments.php' );   // Comments
+		remove_menu_page( 'tools.php' );           // Tools
+		global $submenu; 
+		unset($submenu['themes.php'][6]);          // Customizer
+	}
+	add_action( 'admin_menu', 'remove_menus' );
+}
+
+// Grant editor access to widgets 
+$role = get_role('editor'); 
+$role->add_cap('edit_theme_options');
+
 
 /*--------------------------------------------------------------
 # Image sizes
 --------------------------------------------------------------*/
-// Remove 'medium_large' size to save disk space. Dont remove other default sizes.
-function strt_remove_default_image_sizes( $sizes) {
-	unset( $sizes['medium_large']);
-	return $sizes;
-}
-add_filter('intermediate_image_sizes_advanced', 'strt_remove_default_image_sizes');
-
 // Add custom sizes
 add_image_size( 'post_header', 760, 326, true );
 add_image_size( 'post_header_large', 1160, 497, true ); 
@@ -161,6 +172,74 @@ function strt_sizes( $sizes ) {
 	));
 }
 add_filter( 'image_size_names_choose', 'strt_sizes' );
+
+
+/*--------------------------------------------------------------
+# Custom login logo
+--------------------------------------------------------------*/
+function strt_login_logo() {
+	echo '<style type="text/css">h1 a { 
+		background-image: url('.get_template_directory_uri().'/img/starter-logo@2x.png)!important; 
+		background-size: 320px!important; 
+		height: 80px!important; 
+		width: 320px!important;
+	}</style>';
+}
+add_action('login_head', 'strt_login_logo');
+
+
+/*--------------------------------------------------------------
+# Button shortcode
+--------------------------------------------------------------*/
+function strt_button_shortcode( $atts ) {
+	extract( shortcode_atts(
+		array(
+			'text' => 'button text',
+			'link' => '#',
+			'align' => '',
+			'class' => '',
+		), $atts )
+	);
+	return '<div class="btn_container ' . $align . '"><a href="' . $link . '" class="button ' . $class . '">' . $text . '</a></div>';
+}
+add_shortcode( 'button', 'strt_button_shortcode' );
+
+
+/*--------------------------------------------------------------
+# Gravityforms 
+--------------------------------------------------------------*/
+# Place Gravityforms jquery in footer
+function strt_gravityforms_footerscripts() {
+	return true;
+}
+add_filter("gform_init_scripts_footer", "strt_gravityforms_footerscripts");
+
+# Remove Gravity Forms 'Add Form' button
+if( !current_user_can('administrator') ) {
+	add_filter( 'gform_display_add_form_button', '__return_false');
+}
+
+# Enable 'Hide labels' option in Gravity Forms
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
+# Add all Gravity Forms capabilities to Editor role
+function grant_gforms_editor_access() {
+	$role = get_role( 'editor' );
+	$role -> add_cap( 'gform_full_access' );
+}
+// add_action( 'after_switch_theme', 'grant_gforms_editor_access' );
+
+function revoke_gforms_editor_access() {
+	$role = get_role( 'editor' );
+	$role -> remove_cap( 'gform_full_access' );
+}
+// add_action( 'switch_theme', 'revoke_gforms_editor_access' );
+
+# Set tabindex to 0 al all Gravity Forms
+function change_tabindex( $tabindex, $form ) {
+    return 0;
+}
+add_filter( 'gform_tabindex', 'change_tabindex' , 10, 2 );
 
 
 /*--------------------------------------------------------------
@@ -191,20 +270,6 @@ function remove_more_link_scroll( $link ) {
 	return $link;
 }
 add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
-
-
-/*--------------------------------------------------------------
-# Custom login logo
---------------------------------------------------------------*/
-function strt_login_logo() {
-	echo '<style type="text/css">h1 a { 
-		background-image: url('.get_template_directory_uri().'/img/starter-logo@2x.png)!important; 
-		background-size: 320px!important; 
-		height: 80px!important; 
-		width: 320px!important;
-	}</style>';
-}
-add_action('login_head', 'strt_login_logo');
 
 
 /*--------------------------------------------------------------
@@ -257,94 +322,3 @@ function strt_nav_description( $item_output, $item, $depth, $args ) {
     return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'strt_nav_description', 10, 4 );
-
-
-/*--------------------------------------------------------------
-# Button shortcode
---------------------------------------------------------------*/
-function strt_button_shortcode( $atts ) {
-	extract( shortcode_atts(
-		array(
-			'text' => 'button text',
-			'link' => '#',
-			'align' => '',
-			'class' => '',
-		), $atts )
-	);
-	return '<div class="btn_container ' . $align . '"><a href="' . $link . '" class="button ' . $class . '">' . $text . '</a></div>';
-}
-add_shortcode( 'button', 'strt_button_shortcode' );
-
-
-/*--------------------------------------------------------------
-# Icon shortcode
---------------------------------------------------------------*/
-function strt_icon_shortcode( $atts ) {
-	extract( shortcode_atts(
-		array(
-			'icon' => 'chain',
-		), $atts )
-	);
-	return '<span class="icontainer">' . strt_get_svg( array( 'icon' => $icon ) ) . '</span>';
-}
-add_shortcode( 'icon', 'strt_icon_shortcode' );
-
-
-/*--------------------------------------------------------------
-# Place Gravityforms jquery in footer
---------------------------------------------------------------*/
-function strt_gravityforms_footerscripts() {
-	return true;
-}
-add_filter("gform_init_scripts_footer", "strt_gravityforms_footerscripts");
-
-
-/*--------------------------------------------------------------
-# Remove Gravity Forms 'Add Form' button
---------------------------------------------------------------*/
-if( !current_user_can('administrator') ) {
-	add_filter( 'gform_display_add_form_button', '__return_false');
-}
-
-
-/*--------------------------------------------------------------
-# Enable 'Hide labels' option in Gravity Forms
---------------------------------------------------------------*/
-add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
-
-
-/*--------------------------------------------------------------
-# Add all Gravity Forms capabilities to Editor role
---------------------------------------------------------------*/
-function grant_gforms_editor_access() {
-	$role = get_role( 'editor' );
-	$role->add_cap( 'gform_full_access' );
-}
-// add_action( 'after_switch_theme', 'grant_gforms_editor_access' );
-
-function revoke_gforms_editor_access() {
-	$role = get_role( 'editor' );
-	$role->remove_cap( 'gform_full_access' );
-}
-// add_action( 'switch_theme', 'revoke_gforms_editor_access' );
-
-
-/*--------------------------------------------------------------
-# Set tabindex to 0 al all Gravity Forms
---------------------------------------------------------------*/
-function change_tabindex( $tabindex, $form ) {
-    return 0;
-}
-add_filter( 'gform_tabindex', 'change_tabindex' , 10, 2 );
-
-
-/*--------------------------------------------------------------
-# Remove admin menu items
---------------------------------------------------------------*/
-if( !current_user_can('administrator') ) {
-	function remove_menus(){
-		remove_menu_page( 'edit-comments.php' );          //Comments
-		remove_menu_page( 'tools.php' );                  //Tools
-	}
-	add_action( 'admin_menu', 'remove_menus' );
-}

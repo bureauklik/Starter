@@ -52,10 +52,8 @@
 				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 				float: left;
 				line-height: 1.2em;
-				opacity: 1 !important;
 				padding: 0;
 				position: absolute;
-				top: 3em;
 				left: -999em;
 				z-index: 99999;
 	
@@ -105,14 +103,14 @@
 			}
 			
 			a {
-				padding: .625em 1em;
+				padding: 1.5em 1em;
 				text-transform: uppercase;
 				font-weight: bold;
 				.icon {
 					display: inline;
 					left: 5px;
 					position: relative;
-					top: -1px;
+					margin-top: -.125em;
 				}
 			}
 		}

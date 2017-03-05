@@ -193,3 +193,19 @@ function strt_social_links_icons() {
 	 */
 	return apply_filters( 'strt_social_links_icons', $social_links_icons );
 }
+
+/*--------------------------------------------------------------
+# Icon shortcode
+--------------------------------------------------------------*/
+function strt_icon_shortcode( $atts ) {
+	extract( shortcode_atts(
+		array(
+			'icon' => 'chain',
+		), $atts )
+	);
+	return '<span class="icontainer">' . strt_get_svg( array( 'icon' => $icon ) ) . '</span>';
+}
+add_shortcode( 'icon', 'strt_icon_shortcode' );
+
+
+
